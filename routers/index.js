@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 module.exports = function(express) {
+  const User = require('../db/models/user');
   const router = express.Router();
 
   router.get('/', function(req, res) {
@@ -7,7 +8,12 @@ module.exports = function(express) {
   });
 
   router.get('/login', function(req, res) {
-    res.render('login.html', {companyName: process.env.COMPANY_NAME});
+    User.findOne({admin: true}, function(err, doc) {
+      if (err) {
+        throw new Error(err);
+      }
+      res.render('login.html', {companyName: process.env.COMPANY_NAME, admin: doc});
+    });
   });
 
   router.post('/auth', function(req, res) {
