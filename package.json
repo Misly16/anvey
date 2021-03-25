@@ -1,0 +1,23 @@
+{
+  "name": "anvey",
+  "version": "1.0.0",
+  "description": "Collect user feedback anonymously",
+  "main": "index.js",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url sass/styles.scss public/custom.css",
+    "css-watch": "npm run css-build -- --watch"
+  },
+  "author": "Misly",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.5.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-google": "^0.14.0",
+    "node-sass": "^5.0.0"
+  }
+}
