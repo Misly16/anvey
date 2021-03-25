@@ -8,7 +8,8 @@ nunjucks.configure('views', {
   express: app,
   watch: true,
 });
-
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 const indexRouter = require('./routers/index')(express);
 
 app.use('/', indexRouter);
