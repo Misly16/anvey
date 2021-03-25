@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const nunjucks = require('nunjucks');
+const passport = require('passport');
+const Strategy = require('passport-local').Strategy;
+require('./db/connect');
 const app = express();
 app.use(express.static('public'));
 nunjucks.configure('views', {
