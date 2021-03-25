@@ -12,7 +12,6 @@ module.exports = function(express) {
 
   router.post('/auth', function(req, res) {
     if (!req.headers.referer || !req.headers.referer.includes('/login')) return res.status(400).send('Missing headers');
-    res.send('sucess');
   });
   return router;
 };

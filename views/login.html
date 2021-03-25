@@ -26,11 +26,20 @@
   }
   fetch('/auth', {
       method: 'POST',
+      redirect: 'follow',
       headers: {
     'Content-Type': 'application/json'
       },
       body: JSON.stringify(arr)
-  });
+  }) 
+  .then(response => {
+    if (response.redirected) {
+          window.location.href = response.url;
+        }
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
   });
   </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
