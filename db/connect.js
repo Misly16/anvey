@@ -5,4 +5,4 @@ mongoose.connect(process.env.MONGO_URL, {
   useCreateIndex: true,
 });
 
-connsole.log('Connected to Database');
+console.log('Connected to Database');
