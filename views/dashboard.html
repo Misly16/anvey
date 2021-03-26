@@ -12,21 +12,29 @@
 </div>
 <div style="margin-top: 10%;">
     <div class="dashboard-container">
-    <div class="dashboard-page-option">
+    <div class="dashboard-page-option" onclick="window.location.href = '/dashboard/forms'">
     <sl-icon name="clipboard" class="dashboard-icon"></sl-icon>
     <h1 class="center-text">Forms</h1>
     <h1 class="center-text" style="font-size: var(--sl-font-size-medium);">View and create forms</h1>
     </div>
-    <div class="dashboard-page-option">
+    <div class="dashboard-page-option" onclick="window.location.href = '/dashboard/responses'">
         <sl-icon name="chat-left" class="dashboard-icon"></sl-icon>
         <h1 class="center-text">Responses</h1>
         <h1 class="center-text" style="font-size: var(--sl-font-size-medium);">View form responses</h1>
     </div>
-    <div class="dashboard-page-option">
+    <div class="dashboard-page-option" onclick="window.location.href = '/dashboard/settings'">
         <sl-icon name="gear" class="dashboard-icon"></sl-icon>
         <h1 class="center-text">Settings</h1>
         <h1 class="center-text" style="font-size: var(--sl-font-size-medium);">View and modify settings</h1>
         </div>
+    {% if user.admin %} 
+    <div class="dashboard-page-option" onclick="window.location.href = '/dashboard/users'">
+        <sl-icon name="people" class="dashboard-icon"></sl-icon>
+        <h1 class="center-text">Users</h1>
+        <h1 class="center-text" style="font-size: var(--sl-font-size-medium);">View and manage users</h1>
+        </div>
+    {% endif %}
+
 </div>
 </div>
 </body>
