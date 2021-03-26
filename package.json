@@ -4,7 +4,7 @@
   "description": "Collect user feedback anonymously",
   "main": "index.js",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url sass/styles.scss public/custom.css",
+    "css-build": "node-sass --omit-source-map-url sass/styles.scss public/css/custom.css",
     "css-watch": "npm run css-build -- --watch"
   },
   "author": "Misly",
@@ -12,7 +12,6 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chokidar": "^3.5.1",
-    "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
