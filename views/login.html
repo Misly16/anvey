@@ -13,13 +13,14 @@
     <br>
     <sl-input name="password" type="password" label="Password"></sl-input>
     <br>
-    <sl-button submit>Login</sl-button>
+    <sl-button id="submit-button" submit>Login</sl-button>
   </sl-form>
 </div>
 <script>
  const form = document.querySelector('.form-overview');
   
   form.addEventListener('sl-submit', event => {
+    document.getElementById("submit-button").loading = true;
     const formData = event.detail.formData;
     arr = [];
     for (let entry of formData.entries()) {
@@ -39,6 +40,7 @@
         }
     })
     .catch(function(err) {
+        document.getElementById("submit-button").loading = false;
         console.error(err);
     });
   });
