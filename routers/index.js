@@ -19,5 +19,10 @@ module.exports = function(express, passport) {
   router.post('/auth', passport.authenticate('local', {failureRedirect: '/login'}), function(req, res) {
     res.redirect('/dashboard');
   });
+
+  router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/login');
+  });
   return router;
 };
