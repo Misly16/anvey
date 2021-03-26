@@ -30,6 +30,8 @@ h1 {
     margin-right: 10px;
     margin-top: 10px;
     text-align: center;
+    user-select: none;
+    cursor: pointer;
   };
   .dashboard-container {
       display: flex;
