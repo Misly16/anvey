@@ -60,6 +60,6 @@ const dashboardRouter = require('./routers/dashboard')(express, passport);
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
 
-app.listen(3000, () => {
-  console.log('App started http://localhost:3000');
+app.listen(process.env.PORT, () => {
+  console.log(`anvey started: http://localhost:${process.env.PORT}`);
 });
