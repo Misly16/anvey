@@ -4,7 +4,6 @@ module.exports = function(express, passport) {
   const router = express.Router();
 
   router.get('/', function(req, res) {
-    console.log(req.user)
     res.render('index.html', {companyName: process.env.COMPANY_NAME});
   });
 
@@ -18,7 +17,7 @@ module.exports = function(express, passport) {
   });
 
   router.post('/auth', passport.authenticate('local', {failureRedirect: '/login'}), function(req, res) {
-    res.redirect('/');
+    res.redirect('/dashboard');
   });
   return router;
 };

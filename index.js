@@ -55,8 +55,10 @@ app.use(passport.session());
 app.use(cookieParser());
 
 const indexRouter = require('./routers/index')(express, passport);
+const dashboardRouter = require('./routers/dashboard')(express, passport);
 
 app.use('/', indexRouter);
+app.use('/dashboard', dashboardRouter);
 
 app.listen(3000, () => {
   console.log('App started http://localhost:3000');
