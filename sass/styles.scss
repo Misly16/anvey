@@ -1,13 +1,11 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
-
-
 body {
-    font-family: 'Nunito';
-}
-
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+};
+h1 {
+    font-weight: var(--sl-font-weight-normal);
+};
 .center-text {
     text-align: center;
 };
@@ -22,3 +20,23 @@ body {
     max-width: 400px;
     margin: auto;
   };
+  .dashboard-page-option {
+    border: solid 1px var(--sl-color-gray-200);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+  };
+  .dashboard-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  };
+  .dashboard-icon {
+      font-size: 30px;
+  }
