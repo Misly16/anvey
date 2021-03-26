@@ -1,0 +1,19 @@
+<div style="text-align: right; margin-top: 5px; margin-right: 5px;" id="avatar-dropdown">
+<sl-dropdown>
+<sl-avatar slot="trigger" initials="{{user.username.charAt(0)}}" style="cursor: pointer;"></sl-avatar>
+<sl-menu>
+    <sl-menu-item value="logout">Logout
+        <sl-icon slot="prefix" name="box-arrow-right"></sl-icon>
+    </sl-menu-item>
+  </sl-menu>
+</sl-dropdown>
+</div>
+<script>
+ const container = document.getElementById('avatar-dropdown');
+  const dropdown = container.querySelector('sl-dropdown');
+
+  dropdown.addEventListener('sl-select', event => {
+    const selectedItem = event.detail.item;
+    if (selectedItem.value === 'logout') return window.location.href = '/logout'
+  });
+</script>
