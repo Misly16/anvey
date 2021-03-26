@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-module.exports = function(express) {
+module.exports = function(express, passport) {
   const User = require('../db/models/user');
   const router = express.Router();
 
   router.get('/', function(req, res) {
+    console.log(req.user)
     res.render('index.html', {companyName: process.env.COMPANY_NAME});
   });
 
@@ -16,8 +17,8 @@ module.exports = function(express) {
     });
   });
 
-  router.post('/auth', function(req, res) {
-    if (!req.headers.referer || !req.headers.referer.includes('/login')) return res.status(400).send('Missing headers');
+  router.post('/auth', passport.authenticate('local', {failureRedirect: '/login'}), function(req, res) {
+    res.redirect('/');
   });
   return router;
 };
