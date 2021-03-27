@@ -9,10 +9,10 @@
   {# If an admin exists, show a login #}
   {% if admin %}
 <div style="margin-top: 10%;" class="login">
-  <sl-form class="form-overview login-form">
-    <sl-input name="username" type="text" label="Username"></sl-input>
+  <sl-form class="form-overview login-form input-validation-required">
+    <sl-input name="username" type="text" label="Username" required></sl-input>
     <br>
-    <sl-input name="password" type="password" label="Password"></sl-input>
+    <sl-input name="password" type="password" label="Password" required></sl-input>
     <br>
     <sl-button id="submit-button" submit>Login</sl-button>
   </sl-form>
@@ -49,10 +49,10 @@
   {# If an admin doesnt exist, show a signup #}
   {% else %} 
 <div style="margin-top: 10%;" class="login">
-  <sl-form class="form-overview login-form">
-    <sl-input name="username" type="text" label="Choose a username"></sl-input>
+  <sl-form class="form-overview login-form input-validation-required">
+    <sl-input name="username" type="text" label="Choose a username" required></sl-input>
     <br>
-    <sl-input name="password" type="password" label="Choose a password"></sl-input>
+    <sl-input name="password" type="password" label="Choose a password" required></sl-input>
     <br>
     <sl-button id="submit-button" submit>Register</sl-button>
   </sl-form>
