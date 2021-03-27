@@ -6,6 +6,7 @@
 
 </head>
 <body>
+  {# If an admin exists, show a login #}
   {% if admin %}
 <div style="margin-top: 10%;" class="login">
   <sl-form class="form-overview login-form">
@@ -45,8 +46,46 @@
     });
   });
   </script>
+  {# If an admin doesnt exist, show a signup #}
   {% else %} 
-{# Show a signup here #}
+<div style="margin-top: 10%;" class="login">
+  <sl-form class="form-overview login-form">
+    <sl-input name="username" type="text" label="Choose a username"></sl-input>
+    <br>
+    <sl-input name="password" type="password" label="Choose a password"></sl-input>
+    <br>
+    <sl-button id="submit-button" submit>Register</sl-button>
+  </sl-form>
+</div>
+<script>
+  const form = document.querySelector('.form-overview');
+   
+   form.addEventListener('sl-submit', event => {
+     document.getElementById("submit-button").loading = true;
+     const formData = event.detail.formData;
+     arr = [];
+     for (let entry of formData.entries()) {
+   arr.push({name: entry[0], value: entry[1]})
+   }
+   fetch('/register', {
+       method: 'POST',
+       redirect: 'follow',
+       headers: {
+     'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(arr)
+   }) 
+   .then(response => {
+     if (response.redirected) {
+           window.location.href = response.url;
+         }
+     })
+     .catch(function(err) {
+         document.getElementById("submit-button").loading = false;
+         console.error(err);
+     });
+   });
+   </script>
   {% endif %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/shoelace.js"></script>
