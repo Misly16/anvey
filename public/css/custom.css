@@ -39,3 +39,14 @@ h1 {
 
 .dashboard-icon {
   font-size: 30px; }
+
+.table {
+  border: solid 1px var(--sl-color-gray-200);
+  border-radius: 10px;
+  padding: 20px;
+  width: 1200px;
+  min-height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center; }
