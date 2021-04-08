@@ -16,7 +16,9 @@
 <div class="dashboard-container">
     
     <div class="table">
-
+        {% for forms in forms %}
+{{ forms.title }}
+        {% endfor %}
     </div>
   </div>
 </body>
