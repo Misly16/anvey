@@ -18,6 +18,7 @@
     <div class="table">
         {% for forms in forms %}
         <div class="form-listing" onclick="window.location.href = '/dashboard/forms/view/{{forms.id}}'">
+            {# It would be useful to have a right arrow to show that you can click it #}
 {{ forms.title }}
 <br>
 {{ forms.description }}
