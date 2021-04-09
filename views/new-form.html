@@ -12,15 +12,44 @@
 </div>
 <div style="margin-top: 10%;" class="login">
     <sl-form class="form-overview login-form input-validation-required" style="max-width: unset !important;">
+      <div id="form-inputs">
       <sl-input name="title" type="text" label="Title" required></sl-input>
       <br>
       <sl-input name="description" type="text" label="Description" required></sl-input>
+      <br>
+    </div>
+      <div style="display: flex; justify-content: center; margin: 10px;">
+      <sl-button id="add-field-button">Add field</sl-button>
+    </div>
       <br>
       <div style="display: flex; justify-content: center; margin: 10px;">
         <sl-button id="submit-button" submit>Create</sl-button>
         </div>
     </sl-form>
   </div>
+  <div id="added-field" style="display: none;">
+  {#  <div id="remove-field-button">
+    <sl-icon name="trash" style="position: absolute; padding-left: 80px; padding-top: 4px; cursor: pointer;" ></sl-icon>
+  </div> #}
+    <sl-input name="question" type="text" label="Question" required></sl-input>
+ {#  <p id="remove-field-button" onclick="removeField()" style="margin: 0; user-select: none;">Remove</p> #}
+    <br>
+  </div>
+  <script>
+    removeID = 0;
+    document.getElementById('add-field-button').addEventListener('click', event => {
+      removeID++
+      const input = document.createElement('div');
+      input.id = removeID
+      const deleteButton = '<p id="remove-field-button" onclick="removeField(' + removeID + ')" style="margin-top: -20px; user-select: none;">Remove</p>'
+	    input.innerHTML = document.getElementById('added-field').innerHTML + deleteButton;
+	    document.getElementById('form-inputs').appendChild(input);
+     });
+     function removeField(ID){
+       const item = document.getElementById(ID)
+       document.getElementById('form-inputs').removeChild(item)
+     }
+  </script>
   <script>
     const form = document.querySelector('.form-overview');
      
