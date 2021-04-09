@@ -50,3 +50,12 @@ h1 {
   margin-right: 10px;
   margin-top: 10px;
   text-align: center; }
+
+.divider {
+  color: var(--sl-color-gray-200);
+  margin-left: 5%;
+  margin-right: 5%;
+  opacity: 0.5; }
+
+.form-listing {
+  cursor: pointer; }

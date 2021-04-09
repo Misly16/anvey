@@ -17,7 +17,13 @@
     
     <div class="table">
         {% for forms in forms %}
+        <div class="form-listing" onclick="window.location.href = '/dashboard/forms/view/{{forms.id}}'">
 {{ forms.title }}
+<br>
+{{ forms.description }}
+</div>
+<hr class="divider">
+
         {% endfor %}
     </div>
   </div>

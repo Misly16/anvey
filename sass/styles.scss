@@ -41,7 +41,7 @@ h1 {
   };
   .dashboard-icon {
       font-size: 30px;
-  }
+  };
   .table {
     border: solid 1px var(--sl-color-gray-200);
     border-radius: 10px;
@@ -53,3 +53,12 @@ h1 {
     margin-top: 10px;
     text-align: center;
   };
+.divider {
+    color: var(--sl-color-gray-200);
+    margin-left: 5%;
+    margin-right: 5%;
+    opacity: 0.5;
+};
+.form-listing {
+    cursor: pointer;
+}
