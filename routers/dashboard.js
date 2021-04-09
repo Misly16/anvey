@@ -21,10 +21,19 @@ module.exports = function(express, passport) {
 
   router.post('/forms/new', checkAuth, function(req, res) {
     if (!req.body || !req.body[0] || !req.body[1] || req.body[0].value === '' || req.body[1].value === '') return res.status(400).send('Incorrect body');
+    arr = [];
+    let i;
+    // eslint-disable-next-line guard-for-in
+    for (i = 0; i < req.body.length; i++) {
+      if (req.body[i].name === 'question') {
+        arr.push({question: req.body[i].value, type: req.body[i + 1].value});
+      }
+    };
     new Survey({
       id: nanoid(10),
       title: req.body[0].value,
       description: req.body[1].value,
+      questions: arr,
     }).save();
     res.redirect('/dashboard/forms');
   });

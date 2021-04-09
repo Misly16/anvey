@@ -32,6 +32,11 @@
     <sl-icon name="trash" style="position: absolute; padding-left: 80px; padding-top: 4px; cursor: pointer;" ></sl-icon>
   </div> #}
     <sl-input name="question" type="text" label="Question" required></sl-input>
+    <sl-select name="type" label="Select the question type" required>
+      <sl-menu-item value="text">Text</sl-menu-item>
+      <sl-menu-item value="number">Number</sl-menu-item>
+      <sl-menu-item value="yesorno">Yes/No</sl-menu-item>
+    </sl-select>
  {#  <p id="remove-field-button" onclick="removeField()" style="margin: 0; user-select: none;">Remove</p> #}
     <br>
   </div>
