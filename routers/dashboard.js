@@ -20,7 +20,6 @@ module.exports = function(express, passport) {
   });
 
   router.post('/forms/new', checkAuth, function(req, res) {
-    if (!req.body || !req.body[0] || !req.body[1] || req.body[0].value === '' || req.body[1].value === '') return res.status(400).send('Incorrect body');
     arr = [];
     let i;
     // eslint-disable-next-line guard-for-in
@@ -38,6 +37,12 @@ module.exports = function(express, passport) {
     res.redirect('/dashboard/forms');
   });
 
+  router.get('/forms/remove/:id', checkAuth, function(req, res) {
+    Survey.deleteOne({id: req.params.id}, function(err) {
+      if (err) throw new Error(err);
+      res.redirect('/dashboard/forms');
+    });
+  });
   function checkAuth(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect('/login');

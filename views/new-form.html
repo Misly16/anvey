@@ -46,7 +46,7 @@
       removeID++
       const input = document.createElement('div');
       input.id = removeID
-      const deleteButton = '<p id="remove-field-button" onclick="removeField(' + removeID + ')" style="margin-top: -20px; user-select: none;">Remove</p>'
+      const deleteButton = '<p id="remove-field-button" onclick="removeField(' + removeID + ')" style="margin-top: -20px; user-select: none; text-decoration: underline;">Remove</p>'
 	    input.innerHTML = document.getElementById('added-field').innerHTML + deleteButton;
 	    document.getElementById('form-inputs').appendChild(input);
      });
