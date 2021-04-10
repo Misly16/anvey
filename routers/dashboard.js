@@ -5,18 +5,18 @@ module.exports = function(express, passport) {
   const router = express.Router();
 
   router.get('/', checkAuth, function(req, res) {
-    res.render('dashboard.html', {companyName: process.env.COMPANY_NAME, user: req.user});
+    res.render('dashboard/index.html', {companyName: process.env.COMPANY_NAME, user: req.user});
   });
 
   router.get('/forms', checkAuth, function(req, res) {
     Survey.find({}, function(err, doc) {
       if (err) throw new Error(err);
-      res.render('forms.html', {companyName: process.env.COMPANY_NAME, user: req.user, forms: doc});
+      res.render('dashboard/forms.html', {companyName: process.env.COMPANY_NAME, user: req.user, forms: doc});
     });
   });
 
   router.get('/forms/new', checkAuth, function(req, res) {
-    res.render('new-form.html', {companyName: process.env.COMPANY_NAME, user: req.user});
+    res.render('dashboard/new-form.html', {companyName: process.env.COMPANY_NAME, user: req.user});
   });
 
   router.post('/forms/new', checkAuth, function(req, res) {
