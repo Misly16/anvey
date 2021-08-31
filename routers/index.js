@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 module.exports = function(express, passport) {
   const User = require('../db/models/user');
   const bcrypt = require('bcrypt');

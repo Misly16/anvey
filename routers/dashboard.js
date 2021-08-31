@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 module.exports = function(express, passport) {
   const Survey = require('../db/models/form');
   const {nanoid} = require('nanoid');

@@ -56,9 +56,12 @@ app.use(cookieParser());
 
 const indexRouter = require('./routers/index')(express, passport);
 const dashboardRouter = require('./routers/dashboard')(express, passport);
+const formsRouter = require('./routers/forms')(express, passport)
 
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/forms', formsRouter);
+
 
 app.listen(process.env.PORT, () => {
   console.log(`anvey started: http://localhost:${process.env.PORT}`);
