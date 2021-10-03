@@ -14,10 +14,10 @@
 <div style="margin-top: 10%;" class="login">
     <sl-form class="form-overview login-form input-validation-required" style="max-width: unset !important;">
       <div id="form-inputs">
-      <sl-input name="title" type="text" label="Title" required></sl-input>
+        {% for question in form.questions %}
+      <sl-input name="title" type="{{question.type}}" label="{{question.question}}" required></sl-input>
       <br>
-      <sl-input name="description" type="text" label="Description" required></sl-input>
-      <br>
+      {% endfor %}
     </div>
       <br>
       <div style="display: flex; justify-content: center; margin: 10px;">
