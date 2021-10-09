@@ -15,8 +15,15 @@
     <sl-form class="form-overview login-form input-validation-required" style="max-width: unset !important;">
       <div id="form-inputs">
         {% for question in form.questions %}
+        {% if question.type === 'yesorno' %}
+        <sl-select name="type" label="Select the question type" required>
+          <sl-menu-item value="yes">Yes</sl-menu-item>
+          <sl-menu-item value="no">No</sl-menu-item>
+        </sl-select>
+        {% else %} 
       <sl-input name="title" type="{{question.type}}" label="{{question.question}}" required></sl-input>
       <br>
+      {% endif %}
       {% endfor %}
     </div>
       <br>
@@ -25,7 +32,35 @@
         </div>
     </sl-form>
   </div>
-</body>
+  <script>
+    const form = document.querySelector('.form-overview');
+     
+     form.addEventListener('sl-submit', event => {
+       document.getElementById("submit-button").loading = true;
+       const formData = event.detail.formData;
+       arr = [];
+       for (let entry of formData.entries()) {
+     arr.push({name: entry[0], value: entry[1]})
+     }
+     fetch('/forms/submit/{{form.id}}', {
+         method: 'POST',
+         redirect: 'follow',
+         headers: {
+       'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(arr)
+     }) 
+     .then(response => {
+       if (response.redirected) {
+             window.location.href = response.url;
+           }
+       })
+       .catch(function(err) {
+           document.getElementById("submit-button").loading = false;
+           console.error(err);
+       });
+     });
+     </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/themes/base.css">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.34/dist/shoelace.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
